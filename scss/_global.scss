@@ -1,0 +1,49 @@
+@use "./variables/typography" as t;
+@use "./variables/colors" as c;
+
+@use "./mixins" as mixins;
+
+// Global variables
+:root {
+  // Font families
+  --heading-font-family: #{map-get(t.$font-family, "heading")};
+  --body-font-family: #{map-get(t.$font-family, "body")};
+
+  // Colors: empty hsl + hsl values
+  @include mixins.hsl-colors-vars($prefix: "primary-color", $color-map: c.$primary-color-hsl);
+  @include mixins.hsl-colors-vars($prefix: "accent-color", $color-map: c.$accent-color-hsl);
+  --error-color: hsl(#{c.$error-color});
+}
+
+/**
+ * Font face declarations *******************************************
+ */
+
+@font-face {
+  font-family: map-get(t.$font-family, "heading");
+  src: url("/fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf") format("woff2");
+}
+
+@font-face {
+  font-family: map-get(t.$font-family, "body");
+  src: url("/fonts/Raleway/Raleway-VariableFont_wght.ttf") format("woff2");
+}
+
+/*******************************************************************/
+
+/**
+ * Global styles ****************************************************
+ */
+
+body {
+  font-family: var(--body-font-family);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font-family);
+}

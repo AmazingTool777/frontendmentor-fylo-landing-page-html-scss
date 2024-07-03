@@ -1,0 +1,7 @@
+@use "../variables/colors" as c;
+
+@each $shade, $value in c.$accent-color-hsl {
+  .text-accent-#{$shade} {
+    color: var(--accent-color-#{$shade});
+  }
+}

@@ -1,0 +1,9 @@
+@mixin hsl-colors-vars($prefix, $color-map) {
+  @each $shade, $color in $color-map {
+    --#{$prefix}-#{$shade}-hsl: #{$color};
+  }
+
+  @each $shade, $color in $color-map {
+    --#{$prefix}-#{$shade}: hsl(#{$color});
+  }
+}
