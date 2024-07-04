@@ -1,7 +1,13 @@
 @use "../variables/colors" as c;
 
+// Text colors
 @each $shade, $value in c.$accent-color-hsl {
   .text-accent-#{$shade} {
     color: var(--accent-color-#{$shade});
   }
+}
+
+// List-style-type
+.list-none {
+  list-style-type: none;
 }

@@ -8,6 +8,24 @@
     <link rel="stylesheet" href="scss/main.scss" />
   </head>
   <body>
-    <div id="app"></div>
+    <!-- Navigation bar -->
+    <header class="navbar bg-primary-200">
+      <div
+        class="navbar__layout flex justify-between items-center px-6 pt-6 sm:pt-9 md:pt-12 lg:pt-16 pb-12 mx-auto"
+      >
+        <!-- Logo -->
+        <a href="#" aria-label="Go to home" class="inline-block">
+          <img src="/assets/images/logo.svg" alt="Fylo logo" class="navbar__logo block" />
+        </a>
+        <!-- Links -->
+        <nav>
+          <ul class="list-none flex gap-x-6 md:gap-x-8 lg:gap-x-12 xl:gap-x-14">
+            <li><a href="#" class="navbar__link">Features</a></li>
+            <li><a href="#" class="navbar__link">Team</a></li>
+            <li><a href="#" class="navbar__link">Sign in</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
   </body>
 </html>

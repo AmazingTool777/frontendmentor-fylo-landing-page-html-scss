@@ -1,3 +1,7 @@
+/**
+ * Declares the CSS variables of both the hsl value and the actual hsl color value for a given color name.
+ * Takes in the prefix of the color name and the map of the shades and the hsl values.
+ */
 @mixin hsl-colors-vars($prefix, $color-map) {
   @each $shade, $color in $color-map {
     --#{$prefix}-#{$shade}-hsl: #{$color};
@@ -5,5 +9,23 @@
 
   @each $shade, $color in $color-map {
     --#{$prefix}-#{$shade}: hsl(#{$color});
+  }
+}
+
+/**
+ * @media query for `min-width`
+ */
+@mixin min-screen-size-mediaquery($screen-size) {
+  @media screen and (min-width: $screen-size) {
+    @content;
+  }
+}
+
+/**
+ * @media query for `max-width`
+ */
+@mixin max-screen-size-mediaquery($screen-size) {
+  @media screen and (max-width: $screen-size) {
+    @content;
   }
 }

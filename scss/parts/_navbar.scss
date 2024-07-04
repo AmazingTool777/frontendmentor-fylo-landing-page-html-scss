@@ -1,0 +1,50 @@
+@use "../functions" as fns;
+@use "../variables/responsive-web-design" as rwd;
+@use "../mixins" as mixins;
+
+.navbar {
+  &__layout {
+    $max-widths: (
+      "md": map-get(rwd.$breakpoints, "md"),
+      "lg": map-get(rwd.$breakpoints, "lg"),
+      "xl": 1320px,
+    );
+
+    @each $bp, $max-width in $max-widths {
+      @include rwd.min-breakpoint-mediaquery($bp) {
+        max-width: $max-width;
+      }
+    }
+    @include rwd.min-breakpoint-mediaquery("xl") {
+      padding-top: fns.px-to-rem(76);
+    }
+  }
+
+  &__logo {
+    $initial-width: 80;
+    $final-width: 176;
+
+    @include rwd.each-min-breakpoint-mediaquery-with-interval(
+        ("", "md", "lg", "xl"),
+        $initial-width,
+        $final-width
+      )
+      using ($i, $jump) {
+      width: fns.px-to-rem($initial-width + $i * $jump);
+    }
+  }
+
+  &__link {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    font-size: calc(var(--body-font-size) - 2px);
+    @include rwd.min-breakpoint-mediaquery("lg") {
+      font-size: var(--body-font-size);
+    }
+
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+      text-decoration: underline;
+    }
+  }
+}

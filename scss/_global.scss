@@ -1,5 +1,6 @@
 @use "./variables/typography" as t;
 @use "./variables/colors" as c;
+@use "./functions" as fns;
 
 @use "./mixins" as mixins;
 
@@ -8,6 +9,9 @@
   // Font families
   --heading-font-family: #{map-get(t.$font-family, "heading")};
   --body-font-family: #{map-get(t.$font-family, "body")};
+
+  // Body font-size
+  --body-font-size: #{fns.px-to-rem(14)};
 
   // Colors: empty hsl + hsl values
   @include mixins.hsl-colors-vars($prefix: "primary-color", $color-map: c.$primary-color-hsl);
@@ -46,4 +50,22 @@ h4,
 h5,
 h6 {
   font-family: var(--heading-font-family);
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  transition-duration: 300ms;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+p,
+a {
+  font-size: var(--body-font-size);
 }

@@ -1,4 +1,8 @@
+@use "../functions" as fn;
+
 $font-family: (
   heading: "Open Sans",
   body: "Raleway",
 );
+
+$base-font-size: fn.px-to-rem(14);
