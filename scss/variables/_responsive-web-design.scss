@@ -14,12 +14,8 @@ $breakpoints: (
 // Copy of the $breakpoints map which is append with the `"": 0` key-value pair.
 // This version is essential for mapping CSS classes with screen size breakpoints
 // that also support versions of classes that do not depend on a screen size initially
-$breakpoints-with-blank: ();
-$breakpoints-with-blank: map-merge(
-  $breakpoints-with-blank,
-  (
-    "": 0,
-  )
+$breakpoints-with-blank: (
+  "": 0,
 );
 @each $breakpoint, $screen-size in $breakpoints {
   $breakpoints-with-blank: map-merge(
@@ -73,12 +69,10 @@ $breakpoints-with-blank: map-merge(
  * Loops through a list of breakpointsand applies the `min-breakpoint-mediaquery` mixin for each iteration
  * and passes down the jump value between the given interval based on the number of breakpoints to the content.
  */
-@mixin each-min-breakpoint-mediaquery($breakpoints) {
-  $breakpoints-count: list.length($breakpoints);
-
-  @for $i from 1 through $breakpoints-count {
-    @include min-breakpoint-mediaquery(list.nth($breakpoints, $i)) {
-      @content ($i - 1, $bp, $screen-size);
+@mixin each-min-breakpoint-mediaquery($breakpoints: map-keys($map: $breakpoints-with-blank)) {
+  @each $bp in $breakpoints {
+    @include min-breakpoint-mediaquery($bp) {
+      @content ($bp);
     }
   }
 }

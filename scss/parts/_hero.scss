@@ -1,0 +1,103 @@
+@use "../functions" as fns;
+@use "../variables/responsive-web-design" as rwd;
+@use "../mixins" as mixins;
+
+.hero {
+  $start-padding-bottom-px: 132;
+  $finish-padding-bottom-px: 174;
+
+  --bg-image: url("/assets/images/bg-curvy-mobile.svg");
+  --bg-position: 0% -5.5%;
+  --bg-size: 104.53%;
+
+  @include mixins.min-screen-size-mediaquery(512px) {
+    --bg-position: 0% #{fns.px-to-rem(250)};
+  }
+  @include rwd.min-breakpoint-mediaquery("md") {
+    --bg-position: 0% #{fns.px-to-rem(380)};
+  }
+  @include rwd.min-breakpoint-mediaquery("lg") {
+    --bg-image: url("/assets/images/bg-curvy-desktop.svg");
+    --bg-position: 0% #{fns.px-to-rem(500)};
+    --bg-size: 104.2361%;
+  }
+  @include rwd.min-breakpoint-mediaquery("xl") {
+    --bg-position: 0% #{fns.px-to-rem(645)};
+  }
+
+  @include rwd.each-min-breakpoint-mediaquery-with-interval(
+      $breakpoints: (
+        "",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ),
+      $start: $start-padding-bottom-px,
+      $end: $finish-padding-bottom-px
+    )
+    using ($i, $jump) {
+    padding-bottom: fns.px-to-rem($start-padding-bottom-px + $i * $jump);
+  }
+  background-image: var(--bg-image);
+  background-position: var(--bg-position);
+  background-size: var(--bg-size);
+  background-repeat: no-repeat;
+
+  &__illustration {
+    $widths: (
+      "": min(100%, #{fns.px-to-rem(420)}),
+      "md": min(80%, #{fns.px-to-rem(560)}),
+      "lg": min(80%, #{fns.px-to-rem(640)}),
+      "xl": min(80%, #{fns.px-to-rem(720)}),
+    );
+
+    @include rwd.each-min-breakpoint-mediaquery(map-keys($widths)) using ($bp) {
+      width: map-get($widths, $bp);
+    }
+  }
+
+  &__heading {
+    max-width: fns.px-to-rem(450);
+    @include rwd.min-breakpoint-mediaquery("md") {
+      max-width: fns.px-to-rem(570);
+    }
+    @include rwd.min-breakpoint-mediaquery("lg") {
+      max-width: fns.px-to-rem(720);
+    }
+    @include rwd.min-breakpoint-mediaquery("xl") {
+      font-size: fns.px-to-rem(40);
+      line-height: fns.px-to-rem(60);
+    }
+  }
+
+  &__text {
+    $initial-font-size-px: 14;
+    $end-font-size-px: 20;
+
+    max-width: fns.px-to-rem(450);
+    @include rwd.min-breakpoint-mediaquery("md") {
+      max-width: fns.px-to-rem(500);
+    }
+    @include rwd.min-breakpoint-mediaquery("lg") {
+      max-width: fns.px-to-rem(592);
+    }
+    @include rwd.each-min-breakpoint-mediaquery-with-interval(
+        $breakpoints: (
+          "",
+          "md",
+          "lg",
+          "xl",
+        ),
+        $start: $initial-font-size-px,
+        $end: $end-font-size-px
+      )
+      using ($i, $jump) {
+      font-size: fns.px-to-rem($initial-font-size-px + $i * $jump);
+    }
+  }
+
+  &__cta {
+    width: fns.px-to-rem(240);
+  }
+}

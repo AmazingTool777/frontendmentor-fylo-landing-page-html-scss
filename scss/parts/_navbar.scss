@@ -38,7 +38,7 @@
     color: rgba(255, 255, 255, 0.8);
     font-weight: 400;
     font-size: calc(var(--body-font-size) - 2px);
-    @include rwd.min-breakpoint-mediaquery("lg") {
+    @include rwd.min-breakpoint-mediaquery("md") {
       font-size: var(--body-font-size);
     }
 
