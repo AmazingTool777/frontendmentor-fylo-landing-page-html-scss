@@ -7,7 +7,7 @@
     $max-widths: (
       "md": map-get(rwd.$breakpoints, "md"),
       "lg": map-get(rwd.$breakpoints, "lg"),
-      "xl": 1320px,
+      "xl": 1394px,
     );
 
     @each $bp, $max-width in $max-widths {
