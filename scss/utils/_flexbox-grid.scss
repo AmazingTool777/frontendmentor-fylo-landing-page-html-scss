@@ -1,6 +1,9 @@
 @use "../variables/responsive-web-design" as rwd;
 
-// Flexbox classes
+/**
+ * Flexbox **********************************************************
+ */
+
 @each $bp, $size in rwd.$breakpoints-with-blank {
   @include rwd.min-breakpoint-mediaquery($bp) {
     $bp-modifier: rwd.write-breakpoint-modifier($bp);
@@ -132,7 +135,12 @@
   }
 }
 
-// Gap classes
+/*******************************************************************/
+
+/**
+ * Gap **************************************************************
+ */
+
 $gaps: (
   "0": 0,
   "0\\.5": 0.125rem,
@@ -169,6 +177,7 @@ $gaps: (
   "80": 20rem,
   "96": 24rem,
 );
+
 @each $index, $size in $gaps {
   @each $bp, $width in rwd.$breakpoints-with-blank {
     @include rwd.min-breakpoint-mediaquery($bp) {
@@ -186,3 +195,40 @@ $gaps: (
     }
   }
 }
+
+/*******************************************************************/
+
+/**
+ * Grid *************************************************************
+ */
+
+.grid {
+  display: grid;
+}
+
+$grid-columns: (
+  "1": 1fr,
+  "2": repeat(2, 1fr),
+  "3": repeat(3, 1fr),
+  "4": repeat(4, 1fr),
+  "5": repeat(5, 1fr),
+  "6": repeat(6, 1fr),
+  "7": repeat(7, 1fr),
+  "8": repeat(8, 1fr),
+  "9": repeat(9, 1fr),
+  "10": repeat(10, 1fr),
+  "11": repeat(11, 1fr),
+  "12": repeat(12, 1fr),
+);
+
+@include rwd.each-min-breakpoint-mediaquery using ($bp) {
+  @each $key, $value in $grid-columns {
+    $bp-prefix: rwd.write-breakpoint-modifier($bp);
+
+    .#{$bp-prefix}grid-cols-#{$key} {
+      grid-template-columns: $value;
+    }
+  }
+}
+
+/*******************************************************************/

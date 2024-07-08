@@ -1,0 +1,93 @@
+@use "../functions" as fns;
+@use "../variables/responsive-web-design" as rwd;
+
+.features {
+  $start-row-gap-px: 88;
+  $end-row-gap-px: 96;
+
+  max-width: fns.px-to-rem(954);
+
+  @include rwd.each-min-breakpoint-mediaquery-with-interval(
+      ("", "md", "lg", "xl"),
+      $start-row-gap-px,
+      $end-row-gap-px
+    )
+    using ($i, $jump) {
+    row-gap: fns.px-to-rem($start-row-gap-px + $jump * $i);
+  }
+}
+
+.feature {
+  &__layout {
+    padding: 0 fns.px-to-rem(30);
+    max-width: fns.px-to-rem(438);
+    margin: auto;
+  }
+
+  &__illustration {
+    $start-width-px: 70;
+    $start-height-px: 68;
+    $end-width-px: 93;
+    $end-height-px: 90;
+    $margins-bottom: (
+      "": 36,
+      "md": 32,
+      "lg": 26,
+      "xl": 22,
+    );
+
+    object-fit: contain;
+    object-position: top center;
+
+    @include rwd.each-min-breakpoint-mediaquery-with-interval(
+        ("", "md", "lg"),
+        $start-width-px,
+        $end-width-px
+      )
+      using ($i, $jump) {
+      @if $i <= 1 {
+        max-width: fns.px-to-rem($start-width-px + $jump * $i);
+      } @else {
+        width: fns.px-to-rem($start-width-px + $jump * $i);
+        max-width: none;
+      }
+    }
+    @include rwd.each-min-breakpoint-mediaquery-with-interval(
+        ("", "md", "lg"),
+        $start-height-px,
+        $end-height-px
+      )
+      using ($i, $jump) {
+      @if $i <= 1 {
+        max-height: fns.px-to-rem($start-height-px + $jump * $i);
+      } @else {
+        height: fns.px-to-rem($start-height-px + $jump * $i);
+        max-height: none;
+      }
+    }
+
+    @include rwd.each-min-breakpoint-mediaquery(map-keys($margins-bottom)) using ($bp) {
+      margin-bottom: fns.px-to-rem(map-get($margins-bottom, $bp));
+    }
+  }
+
+  &__heading {
+    margin-top: 0;
+    margin-bottom: fns.px-to-rem(12);
+    font-size: fns.px-to-rem(18);
+
+    @include rwd.min-breakpoint-mediaquery("md") {
+      margin-bottom: fns.px-to-rem(10);
+      font-size: fns.px-to-rem(20);
+    }
+
+    @include rwd.min-breakpoint-mediaquery("lg") {
+      margin-bottom: fns.px-to-rem(8);
+    }
+  }
+
+  &__description {
+    margin: 0;
+    font-size: fns.px-to-rem(14);
+  }
+}

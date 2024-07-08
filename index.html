@@ -32,6 +32,7 @@
       <!-- Hero section -->
       <section
         aria-labelledby="hero-heading"
+        aria-describedby="hero-text"
         class="hero px-9 bg-primary-200 flex flex-col items-center text-center"
       >
         <img
@@ -45,11 +46,101 @@
         >
           All your files in one secure location, accessible anywhere.
         </h1>
-        <p class="hero__text mt-0 mb-8">
+        <p id="hero-text" class="hero__text mt-0 mb-8">
           Fylo stores all your most important files in one secure location. Access them wherever you
           need, share and collaborate with friends family, and co-workers.
         </p>
         <a href="#" class="btn hero__cta">Get Started</a>
+      </section>
+      <!-- Features section -->
+      <section
+        aria-labelledby="Features"
+        class="features mx-auto grid grid-cols-1 lg:grid-cols-2 justify-center lg:justify-between bg-primary-300 text-center"
+      >
+        <!-- Access your files anywhere -->
+        <article
+          aria-labelledby="access-files-anywhere-heading"
+          aria-describedby="access-files-anywhere-description"
+          class="feature"
+        >
+          <div class="feature__layout">
+            <img
+              src="/assets/images/icon-access-anywhere.svg"
+              alt="Access your files, anywhere"
+              class="feature__illustration"
+            />
+            <h2 id="access-files-anywhere-heading" class="feature__heading">
+              Access your files, anywhere
+            </h2>
+            <p id="access-files-anywhere-description" class="feature__description">
+              The ability to use a smartphone, tablet, or computer to access your account means your
+              files follow you everywhere.
+            </p>
+          </div>
+        </article>
+        <!-- Security you can trust -->
+        <article
+          aria-labelledby="security-you-can-trust-heading"
+          aria-describedby="security-you-can-trust-description"
+          class="feature"
+        >
+          <div class="feature__layout">
+            <img
+              src="/assets/images/icon-security.svg"
+              alt="Access your files, anywhere"
+              class="feature__illustration"
+            />
+            <h2 id="security-you-can-trust-heading" class="feature__heading">
+              Security you can trust
+            </h2>
+            <p id="security-you-can-trust-description" class="feature__description">
+              2-factor authentication and user-controlled encryption are just a couple of the
+              security features we allow to help secure your files.
+            </p>
+          </div>
+        </article>
+        <!-- Real-time collaboration -->
+        <article
+          aria-labelledby="real-time-collaboration-heading"
+          aria-describedby="real-time-collaboration-description"
+          class="feature"
+        >
+          <div class="feature__layout">
+            <img
+              src="/assets/images/icon-collaboration.svg"
+              alt="Real-time collaboration"
+              class="feature__illustration"
+            />
+            <h2 id="real-time-collaboration-heading" class="feature__heading">
+              Real-time collaboration
+            </h2>
+            <p id="real-time-collaboration-description" class="feature__description">
+              Securely share files and folders with friends, family and colleagues for live
+              collaboration. No email attachments required.
+            </p>
+          </div>
+        </article>
+        <!-- Store any type of file -->
+        <article
+          aria-labelledby="store-any-file-type-heading"
+          aria-describedby="store-any-file-type-description"
+          class="feature"
+        >
+          <div class="feature__layout">
+            <img
+              src="/assets/images/icon-any-file.svg"
+              alt="Store any type of file"
+              class="feature__illustration"
+            />
+            <h2 id="store-any-file-type-heading" class="feature__heading">
+              Store any type of file
+            </h2>
+            <p id="store-any-file-type-description" class="feature__description">
+              Whether you're sharing holidays photos or work documents, Fylo has you covered
+              allowing for all file types to be securely stored and shared.
+            </p>
+          </div>
+        </article>
       </section>
     </main>
   </body>
