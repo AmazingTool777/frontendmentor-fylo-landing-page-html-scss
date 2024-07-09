@@ -1,0 +1,62 @@
+@use "../variables/responsive-web-design" as rwd;
+@use "../functions" as fns;
+
+.how-it-works {
+  &__layout {
+    $start-padding-x-px: 28;
+    $end-padding-x-px: 104;
+
+    padding-bottom: fns.px-to-rem(76);
+    max-width: fns.px-to-rem(560);
+
+    @include rwd.each-min-breakpoint-mediaquery-with-interval(
+        ("", "md", "lg", "xl"),
+        $start-padding-x-px,
+        $end-padding-x-px
+      )
+      using ($i, $jump) {
+      $padding-x: $start-padding-x-px + $jump * $i;
+
+      padding-left: fns.px-to-rem($padding-x);
+      padding-right: fns.px-to-rem($padding-x);
+    }
+
+    @include rwd.min-breakpoint-mediaquery("md") {
+      padding-bottom: fns.px-to-rem(78);
+    }
+    @include rwd.min-breakpoint-mediaquery("lg") {
+      max-width: fns.px-to-rem(1440);
+      padding-top: fns.px-to-rem(74);
+      padding-bottom: fns.px-to-rem(82);
+    }
+  }
+
+  &__heading {
+    max-width: fns.px-to-rem(472);
+
+    @include rwd.min-breakpoint-mediaquery("xl") {
+      font-size: fns.px-to-rem(40);
+    }
+  }
+
+  &__cta {
+    --color: var(--accent-color-100);
+
+    color: var(--color);
+    padding-bottom: fns.px-to-rem(4);
+    border-bottom: 1px solid var(--color);
+    width: fit-content;
+
+    &:hover {
+      --color: #fff;
+
+      svg #svg-circle {
+        fill: var(--color);
+      }
+    }
+
+    @include rwd.min-breakpoint-mediaquery("lg") {
+      padding-top: fns.px-to-rem(4);
+    }
+  }
+}
