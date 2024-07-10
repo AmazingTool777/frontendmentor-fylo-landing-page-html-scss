@@ -1,0 +1,93 @@
+@use "../functions" as fns;
+@use "../variables/responsive-web-design" as rwd;
+
+.testimonials {
+  &__layout {
+    max-width: fns.px-to-rem(1258);
+  }
+
+  &__quote-bg {
+    transform: translateX(18%) translateY(-88%);
+    width: min(5.86%, fns.px-to-rem(55));
+
+    @include rwd.min-breakpoint-mediaquery("lg") {
+      transform: translateX(-15%) translateY(-77%);
+    }
+  }
+}
+
+.testimonial {
+  background-color: var(--primary-color-100);
+  padding: fns.px-to-rem(26) fns.px-to-rem(20) fns.px-to-rem(20);
+  max-width: fns.px-to-rem(360);
+  position: relative;
+  z-index: 2;
+
+  p {
+    margin-top: 0;
+  }
+
+  @include rwd.min-breakpoint-mediaquery("sm") {
+    padding-top: fns.px-to-rem(32);
+  }
+
+  @include rwd.min-breakpoint-mediaquery("md") {
+    $padding-x: fns.px-to-rem(25);
+
+    padding-top: fns.px-to-rem(36);
+    padding-left: $padding-x;
+    padding-right: $padding-x;
+    padding-bottom: fns.px-to-rem(22);
+  }
+
+  @include rwd.min-breakpoint-mediaquery("lg") {
+    $padding-x: fns.px-to-rem(26);
+
+    padding-left: $padding-x;
+    padding-right: $padding-x;
+    padding-top: fns.px-to-rem(40);
+    padding-bottom: fns.px-to-rem(24);
+  }
+
+  &__content {
+    font-size: fns.px-to-rem(10);
+    letter-spacing: fns.px-to-rem(0.5);
+    margin-bottom: fns.px-to-rem(18);
+
+    @include rwd.min-breakpoint-mediaquery("sm") {
+      margin-bottom: fns.px-to-rem(20);
+    }
+    @include rwd.min-breakpoint-mediaquery("md") {
+      font-size: fns.px-to-rem(12);
+      margin-bottom: fns.px-to-rem(22);
+    }
+    @include rwd.min-breakpoint-mediaquery("lg") {
+      font-size: fns.px-to-rem(14);
+      margin-bottom: fns.px-to-rem(24);
+    }
+  }
+
+  &__author {
+    display: flex;
+    align-items: flex-start;
+    column-gap: fns.px-to-rem(8);
+  }
+
+  &__author-avatar {
+    width: fns.px-to-rem(24);
+    aspect-ratio: 1 / 1;
+    clip-path: circle(50%);
+  }
+
+  &__author-name {
+    font-size: fns.px-to-rem(10);
+    margin-top: 0;
+    margin-bottom: fns.px-to-rem(4);
+    letter-spacing: fns.px-to-rem(1.5);
+  }
+
+  &__author-title {
+    font-size: fns.px-to-rem(7);
+    letter-spacing: fns.px-to-rem(1);
+  }
+}

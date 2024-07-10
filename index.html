@@ -143,7 +143,11 @@
         </article>
       </section>
       <!-- How it works -->
-      <article class="how-it-works">
+      <article
+        aria-labelledby="how-it-works-heading"
+        aria-describedby="how-it-works-description-1 how-it-works-description-2"
+        class="how-it-works"
+      >
         <div
           class="how-it-works__layout pt-20 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-y-12 items-center justify-center"
         >
@@ -154,15 +158,18 @@
               class="block w-full"
             />
           </div>
-          <div class="space-y-5 pl-14">
-            <h2 class="how-it-works__heading text-lg md:text-2xl lg:text-4xl mt-0 w-full">
+          <div class="space-y-5 lg:pl-14">
+            <h2
+              id="how-it-works-heading"
+              class="how-it-works__heading text-lg md:text-2xl lg:text-4xl mt-0 w-full"
+            >
               Stay productive, wherever you are
             </h2>
-            <p class="text-sm xl:text-base m-0">
+            <p id="how-it-works-description-1" class="text-sm xl:text-base m-0">
               Never let location be an issue when accessing your files. Fylo has you covered for all
               of your file storage needs.
             </p>
-            <p class="text-sm xl:text-base m-0">
+            <p id="how-it-works-description-2" class="text-sm xl:text-base m-0">
               Securely share files and folders with friends, family and colleagues for live
               collaboration. No email attachments required.
             </p>
@@ -211,6 +218,94 @@
           </div>
         </div>
       </article>
+      <!-- Testimonials -->
+      <section aria-label="Testimonials" class="testimonials">
+        <div class="testimonials__layout py-24 px-12 mx-auto">
+          <div
+            class="flex flex-col lg:flex-row justify-center items-center gap-y-6 gap-x-10 relative mx-auto w-fit"
+          >
+            <!-- Quote BG -->
+            <img
+              src="/assets/images/bg-quotes.png"
+              alt="Quote"
+              aria-hidden="true"
+              class="testimonials__quote-bg absolute top-0 left-0"
+            />
+            <!-- Satish Patel -->
+            <article
+              aria-label="Satish Patel's testimonial"
+              aria-describedby="satish-patel-testimonial"
+              class="testimonial"
+            >
+              <blockquote>
+                <p id="satish-patel-testimonial" class="testimonial__content">
+                  Fylo has improved our team productivity by an order of magnitude. Since making the
+                  switch our team has become a well-oiled collaboration machine.
+                </p>
+              </blockquote>
+              <footer class="testimonial__author">
+                <img
+                  src="/assets/images/profile-1.jpg"
+                  alt="Satish Patel"
+                  class="testimonial__author-avatar"
+                />
+                <div>
+                  <p class="testimonial__author-name"><strong>Satish Patel</strong></p>
+                  <p class="testimonial__author-title">Founder & CEO, Huddle</p>
+                </div>
+              </footer>
+            </article>
+            <!-- Bruce McKenzie -->
+            <article
+              aria-label="Bruce McKenzie's testimonial"
+              aria-describedby="bruce-mckenzie-testimonial"
+              class="testimonial"
+            >
+              <blockquote>
+                <p id="bruce-mckenzie-testimonial" class="testimonial__content">
+                  Fylo has improved our team productivity by an order of magnitude. Since making the
+                  switch our team has become a well-oiled collaboration machine.
+                </p>
+              </blockquote>
+              <footer class="testimonial__author">
+                <img
+                  src="/assets/images/profile-2.jpg"
+                  alt="Bruce McKenzie"
+                  class="testimonial__author-avatar"
+                />
+                <div>
+                  <p class="testimonial__author-name"><strong>Bruce McKenzie</strong></p>
+                  <p class="testimonial__author-title">Founder & CEO, Huddle</p>
+                </div>
+              </footer>
+            </article>
+            <!-- Iva Boyd -->
+            <article
+              aria-label="Iva Boyd's testimonial"
+              aria-describedby="iva-boyd-testimonial"
+              class="testimonial"
+            >
+              <blockquote>
+                <p id="iva-boyd-testimonial" class="testimonial__content">
+                  Fylo has improved our team productivity by an order of magnitude. Since making the
+                  switch our team has become a well-oiled collaboration machine.
+                </p>
+              </blockquote>
+              <footer class="testimonial__author">
+                <img
+                  src="/assets/images/profile-3.jpg"
+                  alt="Iva Boyd"
+                  class="testimonial__author-avatar"
+                />
+                <div>
+                  <p class="testimonial__author-name"><strong>Iva Boyd</strong></p>
+                  <p class="testimonial__author-title">Founder & CEO, Huddle</p>
+                </div>
+              </footer>
+            </article>
+          </div>
+        </div>
+      </section>
     </main>
   </body>
 </html>
