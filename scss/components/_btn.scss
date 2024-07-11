@@ -8,10 +8,13 @@
   padding: fns.px-to-rem(14) fns.px-to-rem(32);
   background: linear-gradient(to right, var(--accent-color-100), var(--accent-color-300));
   font-weight: 700;
+  font-family: var(--heading-font-family);
   border-radius: fns.px-to-rem(24);
   position: relative;
   z-index: 1;
   overflow: hidden;
+  border: none;
+  cursor: pointer;
 
   @include rwd.min-breakpoint-mediaquery("md") {
     padding-top: fns.px-to-rem(18);

@@ -16,7 +16,7 @@
   // Colors: empty hsl + hsl values
   @include mixins.hsl-colors-vars($prefix: "primary-color", $color-map: c.$primary-color-hsl);
   @include mixins.hsl-colors-vars($prefix: "accent-color", $color-map: c.$accent-color-hsl);
-  --error-color: hsl(#{c.$error-color});
+  --error-color: #{c.$error-color};
 }
 
 /**

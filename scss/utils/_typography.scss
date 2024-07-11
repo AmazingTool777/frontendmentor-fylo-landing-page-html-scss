@@ -11,6 +11,10 @@
   }
 }
 
+.text-error {
+  color: var(--error-color);
+}
+
 /*******************************************************************/
 
 /**
@@ -103,6 +107,31 @@ $font-sizes: (
       font-size: #{map-get($rules, "font-size")};
       line-height: #{map-get($rules, "line-height")};
     }
+  }
+}
+
+/*******************************************************************/
+
+/**
+ * Font-weight ******************************************************
+ */
+
+$font-weights: (
+  "thin": 100,
+  "extralight": 200,
+  "light": 300,
+  "normal": 400,
+  "medium": 500,
+  "semibold": 600,
+  "bold": 700,
+  "extrabold": 800,
+  "black": 900,
+);
+
+// Generate font-weight classes
+@each $name, $value in $font-weights {
+  .font-#{$name} {
+    font-weight: $value;
   }
 }
 

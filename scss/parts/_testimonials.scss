@@ -19,7 +19,7 @@
 .testimonial {
   background-color: var(--primary-color-100);
   padding: fns.px-to-rem(26) fns.px-to-rem(20) fns.px-to-rem(20);
-  max-width: fns.px-to-rem(360);
+  max-width: fns.px-to-rem(460);
   position: relative;
   z-index: 2;
 
@@ -47,6 +47,7 @@
     padding-right: $padding-x;
     padding-top: fns.px-to-rem(40);
     padding-bottom: fns.px-to-rem(24);
+    max-width: fns.px-to-rem(360);
   }
 
   &__content {

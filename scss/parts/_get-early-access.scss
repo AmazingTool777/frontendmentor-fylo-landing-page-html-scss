@@ -1,0 +1,119 @@
+@use "sass:math";
+
+@use "../functions" as fns;
+@use "../variables/responsive-web-design" as rwd;
+
+.get-early-access-container {
+  @include rwd.min-breakpoint-mediaquery("xl") {
+    margin-top: fns.px-to-rem(106);
+  }
+
+  // Bottom-half background
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: var(--primary-color-600);
+    z-index: 1;
+
+    @include rwd.min-breakpoint-mediaquery("lg") {
+      $top-percent: 0.5812;
+
+      top: percentage($top-percent);
+      height: percentage(1 - $top-percent);
+    }
+  }
+}
+
+.get-early-access {
+  $email-height-px: 48;
+  $email-padding-x-px: math.div($email-height-px, 2);
+  $email-text-padding-x-px: $email-padding-x-px + 16;
+
+  max-width: fns.px-to-rem(622);
+  border-radius: fns.px-to-rem(8);
+  box-shadow: 2px 2px 6px rgb(1 1 1 / 0.5);
+  position: relative;
+  z-index: 2;
+
+  @include rwd.min-breakpoint-mediaquery("lg") {
+    max-width: fns.px-to-rem(942);
+  }
+
+  * {
+    margin-top: 0;
+  }
+
+  &__layout {
+    $start-padding-x-px: 30;
+    $end-padding-x-px: 76;
+
+    @include rwd.each-min-breakpoint-mediaquery-with-interval(
+        ("", "sm", "md", "lg", "xl"),
+        $start-padding-x-px,
+        $end-padding-x-px
+      )
+      using ($i, $jump) {
+      $padding-x: fns.px-to-rem($start-padding-x-px + $jump * $i);
+
+      padding-left: $padding-x;
+      padding-right: $padding-x;
+    }
+  }
+
+  &__heading {
+    $start-font-size-px: 18;
+    $end-font-size-px: 32;
+
+    @include rwd.each-min-breakpoint-mediaquery-with-interval(
+        ("", "sm", "md", "lg", "xl"),
+        $start-font-size-px,
+        $end-font-size-px
+      )
+      using ($i, $jump) {
+      font-size: fns.px-to-rem($start-font-size-px + $jump * $i);
+    }
+  }
+
+  &__description {
+    max-width: fns.px-to-rem(628);
+  }
+
+  &__email {
+    height: fns.px-to-rem($email-height-px);
+    border-radius: fns.px-to-rem($email-padding-x-px);
+    border: none;
+    padding-left: fns.px-to-rem($email-text-padding-x-px);
+
+    @include rwd.min-breakpoint-mediaquery("md") {
+      flex-basis: auto;
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+  }
+
+  &__error {
+    font-size: fns.px-to-rem(10);
+    position: absolute;
+    top: calc(100% + #{fns.px-to-rem(8)});
+    left: fns.px-to-rem($email-text-padding-x-px);
+    visibility: hidden;
+  }
+  &__email:invalid + &__error {
+    visibility: visible;
+  }
+
+  &__submit {
+    @include rwd.min-breakpoint-mediaquery("md") {
+      padding: fns.px-to-rem(14) fns.px-to-rem(32) !important;
+      font-size: fns.px-to-rem(14) !important;
+    }
+
+    @include rwd.min-breakpoint-mediaquery("lg") {
+      width: fns.px-to-rem(205);
+    }
+  }
+}
