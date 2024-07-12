@@ -57,9 +57,9 @@
 
     @include rwd.min-breakpoint-mediaquery("sm") {
       margin-bottom: fns.px-to-rem(20);
+      font-size: fns.px-to-rem(12);
     }
     @include rwd.min-breakpoint-mediaquery("md") {
-      font-size: fns.px-to-rem(12);
       margin-bottom: fns.px-to-rem(22);
     }
     @include rwd.min-breakpoint-mediaquery("lg") {
