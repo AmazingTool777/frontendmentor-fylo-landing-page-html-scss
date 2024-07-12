@@ -1,0 +1,188 @@
+@use "../variables/responsive-web-design" as rwd;
+@use "../functions" as fns;
+@use "../mixins" as mixins;
+
+.footer {
+  p {
+    margin: 0;
+  }
+
+  &__layout {
+    $start-padding-bottom-px: 42;
+    $end-padding-bottom-px: 94;
+    $start-padding-x-px: 28;
+    $end-padding-x-px: 64;
+
+    padding-top: fns.px-to-rem(74);
+    max-width: fns.px-to-rem(1328);
+
+    @include mixins.min-screen-size-mediaquery(640px) {
+      padding-top: fns.px-to-rem(76);
+    }
+
+    @include mixins.min-screen-size-mediaquery(992px) {
+      padding-top: fns.px-to-rem(80);
+    }
+
+    @include mixins.min-screen-size-mediaquery(1280px) {
+      padding-top: fns.px-to-rem(84);
+    }
+
+    @include rwd.each-min-breakpoint-mediaquery-with-interval(
+        ("", "sm", "md", "lg", "xl"),
+        $start-padding-bottom-px,
+        $end-padding-bottom-px
+      )
+      using ($i, $jump) {
+      padding-bottom: fns.px-to-rem($start-padding-bottom-px + $jump * $i);
+    }
+
+    @include rwd.each-min-breakpoint-mediaquery-with-interval(
+        ("", "sm", "md", "lg", "xl"),
+        $start-padding-x-px,
+        $end-padding-x-px
+      )
+      using ($i, $jump) {
+      $padding-x: fns.px-to-rem($start-padding-x-px + $jump * $i);
+
+      padding-left: $padding-x;
+      padding-right: $padding-x;
+    }
+  }
+
+  &__logo {
+    width: fns.px-to-rem(176);
+
+    @include mixins.min-screen-size-mediaquery(992px) {
+      padding-left: 0;
+    }
+  }
+
+  &__content-layout {
+    @include mixins.min-screen-size-mediaquery(520px) {
+      display: grid;
+      grid-template-areas: "location location" "contact contact" "nav-links sm-links";
+      grid-template-columns: auto auto;
+    }
+
+    @include mixins.min-screen-size-mediaquery(640px) {
+      grid-template-areas: "location contact" "nav-links sm-links";
+      column-gap: fns.px-to-rem(36);
+    }
+
+    @include mixins.min-screen-size-mediaquery(992px) {
+      grid-template-columns: auto auto auto auto;
+      grid-template-areas: "location contact nav-links sm-links";
+      row-gap: fns.px-to-rem(32);
+    }
+  }
+
+  &__location {
+    grid-area: location;
+  }
+
+  &__location-content {
+    max-width: fns.px-to-rem(550);
+
+    @include mixins.min-screen-size-mediaquery(992px) {
+      max-width: fns.px-to-rem(324);
+    }
+
+    @include mixins.min-screen-size-mediaquery(1280px) {
+      max-width: fns.px-to-rem(316);
+    }
+  }
+
+  &__contact {
+    margin-bottom: fns.px-to-rem(84);
+    grid-area: contact;
+
+    @include mixins.min-screen-size-mediaquery(992px) {
+      justify-content: flex-start;
+    }
+  }
+
+  &__contact-info {
+    font-size: fns.px-to-rem(14);
+  }
+
+  &__nav-links {
+    grid-area: nav-links;
+
+    @include mixins.min-screen-size-mediaquery(432px) {
+      flex-direction: row;
+      max-width: fns.px-to-rem(332);
+
+      > * {
+        width: 100%;
+      }
+    }
+
+    @include mixins.min-screen-size-mediaquery(520px) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav-link {
+    color: rgb(255 255 255 / 0.8);
+
+    &:hover {
+      color: rgb(255 255 255 / 1);
+    }
+  }
+
+  &__sm-links {
+    grid-area: sm-links;
+
+    ul {
+      @include mixins.min-screen-size-mediaquery(520px) {
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      @include mixins.min-screen-size-mediaquery(640px) {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-end;
+      }
+
+      @include mixins.min-screen-size-mediaquery(992px) {
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      @include mixins.min-screen-size-mediaquery(1280px) {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  &__sm-link {
+    --color: rgb(255 255 255 / 0.8);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fns.px-to-rem(28);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: 1px solid var(--color);
+
+    &:hover {
+      --color: var(--accent-color-100);
+    }
+
+    svg {
+      $size: fns.px-to-rem(13);
+
+      max-width: $size;
+      max-height: $size;
+
+      path {
+        fill: var(--color);
+      }
+    }
+  }
+}
