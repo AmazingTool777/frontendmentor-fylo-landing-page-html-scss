@@ -11,13 +11,14 @@
     width: min(5.86%, fns.px-to-rem(55));
 
     @include rwd.min-breakpoint-mediaquery("lg") {
-      transform: translateX(-15%) translateY(-77%);
+      transform: translateX(-15%) translateY(-80%);
     }
   }
 }
 
 .testimonial {
   background-color: var(--primary-color-100);
+  box-shadow: 8px 4px 4px var(--primary-color-200);
   padding: fns.px-to-rem(26) fns.px-to-rem(20) fns.px-to-rem(20);
   max-width: fns.px-to-rem(460);
   position: relative;

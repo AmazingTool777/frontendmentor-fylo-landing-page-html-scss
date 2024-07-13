@@ -121,6 +121,10 @@
     @include mixins.min-screen-size-mediaquery(520px) {
       margin-bottom: 0;
     }
+
+    @include mixins.min-screen-size-mediaquery(1280px) {
+      justify-content: flex-end;
+    }
   }
 
   &__nav-link {

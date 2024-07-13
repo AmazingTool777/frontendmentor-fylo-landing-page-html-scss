@@ -15,8 +15,12 @@
         max-width: $max-width;
       }
     }
+
     @include rwd.min-breakpoint-mediaquery("xl") {
-      padding-top: fns.px-to-rem(76);
+      $padding-y: fns.px-to-rem(76);
+
+      padding-top: $padding-y;
+      padding-bottom: $padding-y;
     }
   }
 
@@ -37,9 +41,14 @@
   &__link {
     color: rgba(255, 255, 255, 0.8);
     font-weight: 400;
-    font-size: calc(var(--body-font-size) - 2px);
+    font-size: fns.px-to-rem(12);
+
     @include rwd.min-breakpoint-mediaquery("md") {
-      font-size: var(--body-font-size);
+      font-size: fns.px-to-rem(14);
+    }
+
+    @include rwd.min-breakpoint-mediaquery("lg") {
+      font-size: fns.px-to-rem(16);
     }
 
     &:hover {

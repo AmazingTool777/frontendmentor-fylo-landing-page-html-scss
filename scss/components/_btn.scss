@@ -15,6 +15,7 @@
   overflow: hidden;
   border: none;
   cursor: pointer;
+  text-align: center;
 
   @include rwd.min-breakpoint-mediaquery("md") {
     padding-top: fns.px-to-rem(18);

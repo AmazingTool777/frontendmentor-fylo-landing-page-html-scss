@@ -36,6 +36,7 @@
 
     @include rwd.min-breakpoint-mediaquery("xl") {
       font-size: fns.px-to-rem(40);
+      line-height: 1.2;
     }
   }
 

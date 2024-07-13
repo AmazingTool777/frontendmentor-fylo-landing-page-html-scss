@@ -40,7 +40,7 @@
   z-index: 2;
 
   @include rwd.min-breakpoint-mediaquery("lg") {
-    max-width: fns.px-to-rem(942);
+    max-width: fns.px-to-rem(862);
   }
 
   * {
@@ -113,7 +113,11 @@
     }
 
     @include rwd.min-breakpoint-mediaquery("lg") {
+      $padding-y: fns.px-to-rem(16);
+
       width: fns.px-to-rem(205);
+      padding-top: $padding-y !important;
+      padding-bottom: $padding-y !important;
     }
   }
 }

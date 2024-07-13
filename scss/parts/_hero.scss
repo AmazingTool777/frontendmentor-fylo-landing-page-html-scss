@@ -98,6 +98,21 @@
   }
 
   &__cta {
-    width: fns.px-to-rem(240);
+    $start-width-px: 240;
+    $end-width-px: 278;
+
+    @include rwd.each-min-breakpoint-mediaquery-with-interval(
+        $breakpoints: (
+          "",
+          "md",
+          "lg",
+          "xl",
+        ),
+        $start: $start-width-px,
+        $end: $end-width-px
+      )
+      using ($i, $jump) {
+      width: fns.px-to-rem($start-width-px + $i * $jump);
+    }
   }
 }
