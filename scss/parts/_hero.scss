@@ -55,6 +55,10 @@
     @include rwd.each-min-breakpoint-mediaquery(map-keys($widths)) using ($bp) {
       width: map-get($widths, $bp);
     }
+
+    opacity: 0;
+    transform: translateY(-30%);
+    transition: none;
   }
 
   &__heading {
@@ -114,5 +118,10 @@
       using ($i, $jump) {
       width: fns.px-to-rem($start-width-px + $i * $jump);
     }
+  }
+
+  &__text,
+  &__cta {
+    transition: none;
   }
 }

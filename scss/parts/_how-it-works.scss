@@ -31,6 +31,12 @@
     }
   }
 
+  &__illustration {
+    transition: none;
+    opacity: 0;
+    transform: translateX(-20%);
+  }
+
   &__heading {
     max-width: fns.px-to-rem(472);
 
@@ -59,5 +65,13 @@
     @include rwd.min-breakpoint-mediaquery("lg") {
       padding-top: fns.px-to-rem(4);
     }
+  }
+
+  &__heading,
+  &__description,
+  &__cta {
+    transition: none;
+    opacity: 0;
+    transform: translateX(30%);
   }
 }
