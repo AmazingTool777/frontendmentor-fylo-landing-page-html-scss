@@ -45,7 +45,7 @@ heroTl.from(".hero__cta", {
 gsap.to(".feature", {
   scrollTrigger: {
     trigger: ".features",
-    start: "top center",
+    start: "center bottom",
   },
   duration: 1,
   ease: "elastic.out(1,0.3)",
